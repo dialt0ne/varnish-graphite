@@ -5,8 +5,9 @@ Small Python script for sending Varnish statistics to Graphite.
 ## Usage
 
 ```
-usage: varnish-graphite [-h] [-H HOST] [-p PORT] [-n NAME] [-P PREFIX]
-                        [-i INTERVAL] [-b BUFFER_SIZE] [-B MAX_BUFFER_SIZE]
+usage: varnish-graphite [-h] [-H HOST] [-p PORT] [-n NAME] [-f FORMAT]
+                        [-P PREFIX] [-i INTERVAL] [-b BUFFER_SIZE]
+                        [-B MAX_BUFFER_SIZE]
 
 Collect and stream Varnish statistics to Graphite.
 
@@ -16,7 +17,11 @@ optional arguments:
   -p PORT, --port PORT  The graphite server port (default: 2003)
   -n NAME, --name NAME  Specifies the name of the varnishd instance to get
                         logs from. If -n is not specified, the host name is
-                        used. (default: albatross-3.local)
+                        used. (default: $HOSTNAME)
+  -f FORMAT, --format FORMAT
+                        Specifies the format of the data to collect from
+                        varnishstat. If -f is not specified, json is used.
+                        (default: json)
   -P PREFIX, --prefix PREFIX
                         The prefix for metric names (default: varnish)
   -i INTERVAL, --interval INTERVAL
